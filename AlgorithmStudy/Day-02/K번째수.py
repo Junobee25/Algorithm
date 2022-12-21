@@ -12,8 +12,3 @@ for i in range(T):
 
 for i in range(T):
     print(Solution[i])
-    
-
-
-
- 

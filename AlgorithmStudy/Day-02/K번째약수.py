@@ -10,5 +10,3 @@ if k >= len(Divisor_List) :
     print(-1)
 else :
     print(Divisor_List[k-1])
-
-
