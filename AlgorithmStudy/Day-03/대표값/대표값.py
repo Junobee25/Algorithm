@@ -1,6 +1,6 @@
 N = int(input())
 score = list(map(int,input().split()))
-avg_score = round(sum(score)/len(score))
+avg_score = round(sum(score)/len(score)+0.5)  # round_half_even 방식으로 인해 round 함수 수정 
 score_min = float('inf')
 min_list = []
 
