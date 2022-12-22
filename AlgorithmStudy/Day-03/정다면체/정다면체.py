@@ -31,11 +31,3 @@ for i in PlusNM:
 # set을 통해 중복제거 후 오름차순 해결
 for i in set(solution):
     print(i,end=" ")
-    
-
-
-
-
-
-
-
