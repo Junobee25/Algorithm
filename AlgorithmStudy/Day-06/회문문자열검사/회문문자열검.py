@@ -13,7 +13,7 @@ N = int(input())
 #         print(Test[i]," ",ReverseTest[i])
 #         print("YES")
 #     elif Test[i] != ReverseTest[i] :
-#         print("NO")
+#         prin t("NO")
 
 for i in range(N):
     # sys는 개행문자포함이니 공백제거 해줘야함

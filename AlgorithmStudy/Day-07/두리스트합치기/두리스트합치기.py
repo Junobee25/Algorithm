@@ -1,3 +1,4 @@
+# SOL - 탐색&시뮬레이션
 import sys
 input = sys.stdin.readline
 N = int(input())
