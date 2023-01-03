@@ -20,8 +20,3 @@ for i in range(N):
     dia_sum += arr[i][i]  # 대각선은 하나
 
 print(max(row_sum,col_sum,dia_sum))
-            
-    
-
-
-
