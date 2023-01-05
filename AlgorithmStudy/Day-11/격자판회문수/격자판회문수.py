@@ -11,5 +11,3 @@ for i in range(7):
             cnt += 1
 
 print(cnt)
-
-    
