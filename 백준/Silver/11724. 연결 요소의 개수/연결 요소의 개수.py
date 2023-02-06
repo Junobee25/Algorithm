@@ -1,31 +1,25 @@
 import sys
-sys.setrecursionlimit(10000000)
 input = sys.stdin.readline
-
 N,M = map(int,input().split())
-matrix = [[] for _ in range(N)]
-visited = [False] *(N)
-
-for _ in range(M):
+matrix = [[0]*(N+1) for _ in range(N+1)]
+visited = [0]*(N+1)
+for i in range(M):
     a,b = map(int,input().split())
-    matrix[a-1].append(b-1)
-    matrix[b-1].append(a-1)
-
-def dfs(V):
-    visited[V] = True
-    for i in matrix[V]:
-        if visited[i] == False:
-            visited[i]= True
-            dfs(i)
-
-
-
-
+    matrix[a][b] = matrix[b][a] = 1
 cnt = 0
-for i in range(N):
-    if visited[i] == False:
-        cnt +=1
-        dfs(i)
-
+def bfs(V):
+    queue = [V]
+    visited[V] = 1
+    while queue:
+        V = queue.pop(0)
+        for i in range(1,N+1):
+            if (visited[i]==0 and matrix[V][i]==1):
+                queue.append(i)
+                visited[i] = 1
+for i in range(1,N+1):
+    if visited[i] == 0:
+        cnt += 1
+        bfs(i)
 print(cnt)
+
     
