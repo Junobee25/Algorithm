@@ -15,15 +15,10 @@ combi = list(combinations(com,3))
 dy = [-1,0,1,0]
 dx = [0,1,0,-1]
 
-def dfs(y,x,matrix):
-    visited = [[False]*n for _ in range(n)]
-    stack = []
-    stack.append((y,x))
-
-    while stack:
-        y,x = stack.pop()
+def check(y,x,matrix):
+    for _ in range(1):
         for i in range(4):
-            for j in range(1,n+1):
+            for j in range(1,n+1): 
                 ny = y + dy[i]*j
                 nx = x + dx[i]*j
                 if ny < 0 or ny >= n or nx < 0 or nx >= n:
@@ -46,11 +41,15 @@ for c in combi:
     for y in range(n):
         for x in range(n):
             if set_map[y][x] == 'T':
-                if not dfs(y,x,set_map):
+                if not check(y,x,set_map):
                     answer = 'NO'
+
+        # check point
         if answer == 'NO':
             break
 
     if answer == 'YES':
         break
 print(answer)
+
+
