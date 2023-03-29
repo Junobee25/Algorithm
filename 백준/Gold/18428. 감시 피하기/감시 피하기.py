@@ -22,7 +22,7 @@ def check(y,x,matrix):
                 ny = y + dy[i]*j
                 nx = x + dx[i]*j
                 if ny < 0 or ny >= n or nx < 0 or nx >= n:
-                    continue
+                    break
                 if matrix[ny][nx] == 'O':
                     break
                 if matrix[ny][nx] == 'S':
@@ -44,12 +44,6 @@ for c in combi:
                 if not check(y,x,set_map):
                     answer = 'NO'
 
-        # check point
-        if answer == 'NO':
-            break
-
     if answer == 'YES':
         break
 print(answer)
-
-
