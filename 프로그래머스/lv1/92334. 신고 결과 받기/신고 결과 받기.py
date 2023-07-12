@@ -4,6 +4,8 @@ def solution(id_list, report, k):
     
     # 누가 몇번 지목 당했는지에 대한 딕셔너리
     id_dict = {}
+    
+    # 시간초과 해결하기 위해서 idx를 딕셔너리에 추가
     idx_dict = {}
     
     for i in range(len(id_list)):
@@ -22,13 +24,18 @@ def solution(id_list, report, k):
         id_dict[new_report[i][1]] += 1
     
     # 딕셔너리 key(지목당한 사람), value(몇번) 모두 필요 함
-    for key, value in id_dict.items():
+    for key, value in id_dict.items(): # id_list의 길이 최대값 1000
         # k번 이상 지목 되면 메일 전송
         if value >= k:
             
             # c[0] => 누가 c[1] => 누굴 지목 함
-            for c in new_report:
+            for c in new_report: # new_report의 최대 길이 200,000
                 if key == c[1]:
+                    
+                    # index함수 O(n) => id_list의 최대 값 O(1000)
+                    # answer[id_list.index(c[0])] += 1
+                    
+                    # 딕셔너리 키에 대한 인덱스를 바로 추출 O(1)
                     answer[idx_dict[c[0]]] += 1
         
     return answer
