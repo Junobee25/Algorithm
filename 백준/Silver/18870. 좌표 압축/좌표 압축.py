@@ -1,13 +1,21 @@
-N = int(input())
-row = list(map(int,input().split()))
-new_row = list(set(row))
+import copy
 
-new_row.sort() # set sort 를 통해 작은수 큰수를 나눔 해당 숫자가 몇번째 위치인지만 알면 됨 그게 상대적 크기순서임
+number_dict = {}
 
-hash = {}
+n = int(input())
 
-for i in range(len(new_row)):
-    hash[new_row[i]] = i
+temp = list(map(int,input().split()))
 
-for i in row:
-    print(hash[i],end=" ")
+arr = copy.deepcopy(temp)
+
+temp = list(set(temp))
+temp.sort()
+
+for i in range(len(temp)):
+    if temp[i] not in number_dict:
+        number_dict[temp[i]] = i
+    else:
+        pass
+    
+for i in range(len(arr)):
+    print(number_dict[arr[i]], end = ' ')
