@@ -1,31 +1,29 @@
 import sys
+
 input = sys.stdin.readline
-def Count(len):
-    cnt = 0
-    for x in arr:
-        cnt += (x//len)
-    return cnt
 
-N,M = map(int,input().split())
-arr = []
-res = 0
-largest = 0
-for i in range(N):
-    tmp = int(input())
-    arr.append(tmp)
-    largest = max(largest, tmp)
+K,N = map(int,input().split())
 
+
+row_list = []
+
+for i in range(K):
+    t = int(input().rstrip())
+    row_list.append(t)
 
 lt = 1
-rt = largest
+rt = max(row_list)
 
-solution = []
-while lt<=rt:
-    mid = (lt+rt)//2
-    if Count(mid)>=M:
-        res = mid
+while lt <= rt:
+    mid = (lt + rt)//2
+    res = 0
+    for i in row_list:
+        if i >= mid:
+            res += (i // mid)
+    if res >= N:
         lt = mid + 1
+    
     else:
         rt = mid - 1
 
-print(res)            
+print(rt)
