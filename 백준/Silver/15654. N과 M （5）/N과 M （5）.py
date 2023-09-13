@@ -1,14 +1,19 @@
-from itertools import permutations
+N, M = map(int, input().split())
+numbers = [int(x) for x in input().split()]
 
-n,m = map(int,input().split())
-arr = list(map(int,input().split()))
-check = []
-for i in permutations(arr,m):
-    check.append(i)
+numbers.sort()
 
-check.sort()
+def backtracking(depth):
+    if depth == M:
+        print(' '.join(map(str,arr)))
+        return
 
-for i in check:
-    for j in i:
-        print(j,end = " ")
-    print()
+    for i in range(N):
+        if numbers[i] in arr:
+            continue
+        arr.append(numbers[i])
+        backtracking(depth + 1)
+        arr.pop()
+
+arr = []
+backtracking(0)
