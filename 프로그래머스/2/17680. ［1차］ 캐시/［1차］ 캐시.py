@@ -2,22 +2,20 @@ from collections import deque
 
 def solution(cacheSize, cities):
     cache = deque([])
-    upper_cities = []
-     
-    for city in cities:
-        upper_cities.append(city.upper())
 
     answer = 0
-    for city in upper_cities:
-        if (city not in cache):
+    for city in cities:
+        new_city = city.upper()
+        if (new_city not in cache):
             answer += 5
             if (len(cache) == cacheSize):
-                cache.append(city)
+                cache.append(new_city)
                 cache.popleft()
             else:
-                cache.append(city)
+                cache.append(new_city)
         else:
-            cache.remove(city)
-            cache.append(city)
+            cache.remove(new_city)
+            cache.append(new_city)
             answer += 1
+            
     return answer
