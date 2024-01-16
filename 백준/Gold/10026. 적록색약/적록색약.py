@@ -49,4 +49,3 @@ for i in range(N):
             bfs(i,j,color)
             cnt_2 += 1
 print(cnt,cnt_2)
-
