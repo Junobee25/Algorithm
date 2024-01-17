@@ -1,3 +1,5 @@
+import sys
+input = sys.stdin.readline
 T = int(input())
 arr = []
 for i in range(T):
