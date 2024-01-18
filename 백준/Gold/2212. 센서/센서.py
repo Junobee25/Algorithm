@@ -3,10 +3,7 @@ K = int(input())
 
 sensor = list(map(int ,input().split()))
 sensor.sort()
-
-distance = []
-for idx in range(1, len(sensor)):
-    distance.append(sensor[idx] - sensor[idx - 1])
+distance = [sensor[idx] - sensor[idx - 1] for idx in range(1, len(sensor))]
 distance.sort()
 
 # N - 1 간선 
