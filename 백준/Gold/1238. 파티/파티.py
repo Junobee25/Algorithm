@@ -45,7 +45,3 @@ for i in range(1,len(distance)):
     if k > max_val:
         max_val = k
 print(max_val)
-
-
-
-
