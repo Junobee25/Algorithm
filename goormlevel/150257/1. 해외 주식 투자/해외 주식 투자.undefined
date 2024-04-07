@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+import sys
+import math
+
+input = sys.stdin.readline
+
+N = int(input())
+stock = []
+
+for idx in range(1, N + 1):
+	v, w = map(float, input().split())
+	assessment_amount = math.floor(v * w * 10) / 10
+	stock.append((assessment_amount, idx))
+	
+
+stock.sort(key = lambda x :(x[0], -x[1]), reverse=True)
+
+result = ' '.join(str(item[1]) for item in stock)
+print(result)
+	
+	
+	
+	
