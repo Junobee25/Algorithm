@@ -18,7 +18,7 @@ for _ in range(N):
 idx = 0
 
 while idx <= N + k - 1:
-    i = idx % len(s_list)
+    i = idx % N
     
     if idx > k - 1:
         if s_dict[s_list[i - k]] == 1:
