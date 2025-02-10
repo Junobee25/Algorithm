@@ -1,24 +1,29 @@
-def matrix_mul(a, b, m):
-    result = [[0, 0], [0, 0]]
-    for i in range(2):
-        for j in range(2):
-            for k in range(2):
-                result[i][j] = (result[i][j] + a[i][k] * b[k][j]) % m
-    return result
+a, r, n, m = map(int, input().split())
 
-def matrix_power_modular(a, n, m):
-    result = [[1, 0], [0, 1]]  # Identity matrix
-    while n > 0:
-        if n % 2 == 1:
-            result = matrix_mul(result, a, m)
-        a = matrix_mul(a, a, m)
-        n //= 2
-    return result
+def matrix_mul(a,b):
+    A = [[0,0],[0,0]]
+    for k in range(2):
+        for i in range(2):
+            for j in range(2):
+                temp = (a[i][k]*b[k][j]) % m
+                A[i][j] = (A[i][j] + temp) % m
 
-a, r, n, mod = map(int, input().split())
+    return A
 
-base_matrix = [[r, 0], [a, 1]]
 
-result_matrix = matrix_power_modular(base_matrix, n, mod)
+def f(a,n):
+    if n == 1:
+        return a
+    else:
+        temp = f(a, n//2)
 
-print(result_matrix[1][0])
+        if n % 2 == 0:
+            return matrix_mul(temp, temp) 
+        else:
+            return matrix_mul(matrix_mul(temp, temp), a)
+
+
+matrix = [[r,0],[a,1]]
+
+result = f(matrix, n)
+print(result[1][0] % m)
